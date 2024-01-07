@@ -1,8 +1,8 @@
 const Error = () => {
   return (
     <div>
-        <p>Usuário não encontrado!</p>
+      <p>Usuário não encontrado!</p>
     </div>
-  )
-}
-export default Error
+  );
+};
+export default Error;

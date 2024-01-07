@@ -1,47 +1,50 @@
-import { UserProps } from "../types/user"
+import { UserProps } from "../types/User";
 
-import { useState } from "react"
-import Search from "../components/Search"
-import User from "../components/User"
-import Error from "../components/Error"
-
+import { useState } from "react";
+import Search from "../components/Search";
+import User from "../components/User";
+import Error from "../components/Error";
+import Loader from "../components/Loader";
 
 const Home = () => {
-  const [user, setUser] =  useState<UserProps | null>(null)
-  const [error, setError] = useState(false)
+  const [user, setUser] = useState<UserProps | null>(null);
+  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const loadUser = async (username: string) => {
-    setError(false)
-    setUser(null)
-    const res = await fetch(`https://api.github.com/users/${username}`)
+    setIsLoading(true);
+    setError(false);
+    setUser(null);
+    const res = await fetch(`https://api.github.com/users/${username}`);
 
-    const data = await res.json()
+    const data = await res.json();
+    setIsLoading(false);
 
     if (res.status === 404) {
-      setError(true)
+      setError(true);
       return;
     }
 
-    const {avatar_url, login, location, followers, following} = data
+    const { avatar_url, login, location, followers, following } = data;
 
     const userData: UserProps = {
-    avatar_url,
-    login,
-    location,
-    followers,
-    following
-   }
+      avatar_url,
+      login,
+      location,
+      followers,
+      following,
+    };
 
-   setUser(userData)
-
-  }
+    setUser(userData);
+  };
 
   return (
     <div>
-        <Search loadUser={loadUser}/>
-        {user && <User {...user}/>}
-        {error && <Error />}
+      <Search loadUser={loadUser} />
+      {isLoading && <Loader />}
+      {user && <User {...user} />}
+      {error && <Error />}
     </div>
-  )
-}
-export default Home
+  );
+};
+export default Home;
