@@ -1,11 +1,11 @@
-type SearchProps = {
-  loadUser: (username: string) => Promise<void>;
-};
-
 import { useState, KeyboardEvent } from "react";
 import { BsSearch } from "react-icons/bs";
 
 import classes from "./Search.module.css";
+
+type SearchProps = {
+  loadUser: (username: string) => Promise<void>;
+};
 
 const Search = ({ loadUser }: SearchProps) => {
   const [username, setUsername] = useState("");

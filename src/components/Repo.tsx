@@ -1,4 +1,4 @@
-import { ReposProps } from "../types/Repos";
+import { ReposProps } from "../types/repos";
 import { BsCodeSlash } from "react-icons/bs";
 import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
 import { RiGitRepositoryLine } from "react-icons/ri";
