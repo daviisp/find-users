@@ -1,5 +1,5 @@
-import { UserProps } from "../types/User";
 import { useState } from "react";
+import { UserProps } from "../types/user";
 import Search from "../components/Search";
 import User from "../components/User";
 import Error from "../components/Error";
