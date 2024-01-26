@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { UserProps } from "../types/user";
+import { UserProps } from "../interfaces/user";
 
 import { MdLocationPin } from "react-icons/md";
 

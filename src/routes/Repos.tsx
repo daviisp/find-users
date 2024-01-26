@@ -1,6 +1,6 @@
 import classes from "./Repos.module.css";
 
-import { ReposProps } from "../types/repos";
+import { reposProps } from "../interfaces/repos";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -11,7 +11,7 @@ import Repo from "../components/Repo";
 
 const Repos = () => {
   const { username } = useParams();
-  const [repos, setRepos] = useState<ReposProps[] | [] | null>(null);
+  const [repos, setRepos] = useState<reposProps[] | [] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Repos = () => {
       setIsLoading(false);
 
       let orderedRepos = data.sort(
-        (a: ReposProps, b: ReposProps) =>
+        (a: reposProps, b: reposProps) =>
           b.stargazers_count - a.stargazers_count
       );
 

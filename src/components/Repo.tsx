@@ -1,4 +1,4 @@
-import { ReposProps } from "../types/repos";
+import { reposProps } from "../interfaces/repos";
 import { BsCodeSlash } from "react-icons/bs";
 import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
 import { RiGitRepositoryLine } from "react-icons/ri";
@@ -11,7 +11,7 @@ const Repo = ({
   language,
   stargazers_count,
   forks_count,
-}: ReposProps) => {
+}: reposProps) => {
   return (
     <div className={classes.repo}>
       <h3>{name}</h3>
