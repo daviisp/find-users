@@ -19,8 +19,10 @@ const Repos = () => {
 
     const loadRepos = async (username: string) => {
       setIsLoading(true);
-      const res = await fetch(`https://api.github.com/users/${username}/repos`);
-      const data = await res.json();
+      const response = await fetch(
+        `https://api.github.com/users/${username}/repos`
+      );
+      const data = await response.json();
       setIsLoading(false);
 
       let orderedRepos = data.sort(
